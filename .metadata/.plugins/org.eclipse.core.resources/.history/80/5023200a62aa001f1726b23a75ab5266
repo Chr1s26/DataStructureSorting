@@ -1,0 +1,20 @@
+package Sorting;
+
+public class MergeSort {
+	
+	public static void main(String[] args) {
+		
+		int[] array = new int[6];
+		for(int i = 1; i < 6; i++) {
+			array[i] = i;
+		}
+		
+		for(int j = 0; j < array.length; j++) {
+			System.out.print(array[j]);
+		}
+	}
+	
+	public static void sort(int[] array) {
+		
+	}
+} 

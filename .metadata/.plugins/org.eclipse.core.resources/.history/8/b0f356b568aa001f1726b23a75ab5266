@@ -1,0 +1,50 @@
+package Sorting;
+
+public class MergeSort {
+	
+	public static void main(String[] args) {
+		
+//		int[] array = {5,2,3,6,4,7,8,1};
+		int[] array1 = {8,3,7};
+		int[] array2 = {5,2,1};
+		
+		int[] result = sort(array1,array2);
+		print(result);
+		
+	}
+	
+	public static void print(int[] array) {
+		for(int i = 0; i < array.length; i++) {
+			System.out.print(array[i]);
+		}
+	}
+	
+	public static void merge(int[] array) {
+		
+		while(array.length != 1) {
+		int mid = array.length/2;
+		}
+	}
+	
+	public static int[] sort(int[] array1,int[] array2) {
+		
+		int[] result = new int[array1.length+array2.length];
+		int count = 0;
+		
+		for(int i = 0; i < array1.length; i++) {
+			for(int j = 0; j < array2.length; j++) {
+				if(array1[i] >= array2[i]) {
+					result[count] = array2[j];
+					count++;
+					break;
+				}
+				result[count] = array1[i];
+				if(count <= array1.length+array2.length) {
+					count++;
+				}
+			}
+		}
+		
+		return result;
+	}
+} 
