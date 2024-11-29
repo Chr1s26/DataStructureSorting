@@ -1,0 +1,46 @@
+package Sorting;
+
+public class QuickSort {
+	
+	public static void main(String[] args) {
+		int[] arr = {31,12,55,26,17,14,43,22};
+		//second = 0; j = 0
+		//
+		arr = sort(arr,arr.length-1,-1);
+//		arr = rsort(arr,1);
+		
+		for(int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i]+",");
+		}
+	}
+	
+	public static int[] sort(int[] arr,int pivot,int secondpointer) {
+	
+		int m = secondpointer;
+		int k;
+		
+		for(int j = m; j < pivot - 1; j++) {
+			if(arr[j] < arr[pivot]) {
+				secondpointer++;
+			}	
+			if(secondpointer > -1) {
+				k = secondpointer;
+				if(arr[j] > arr[k]) {
+					int temp = arr[j];
+					arr[j] = arr[secondpointer];
+					arr[secondpointer] = temp;
+				}
+			}
+		}
+			secondpointer++;
+			int temp = arr[pivot];
+			arr[pivot] = arr[secondpointer];
+			arr[secondpointer] = temp;
+		
+		
+//		sort(arr,secondpointer,);
+	
+		
+		return arr;
+	}
+}

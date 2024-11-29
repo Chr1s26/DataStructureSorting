@@ -1,0 +1,33 @@
+package Sorting;
+
+public class InsertionSort {
+	
+	public static void main(String[] args) {
+		int[] arr = {54,34,2,42,4,21,1};
+		arr = sort(arr);
+		
+		for(int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i]+",");
+		}
+	}
+	
+	public static int[] sort(int[] arr) {
+		int n = 0;
+		for(int j = 0; j < arr.length - 1; j++) {
+			if(arr[j] > arr[j+1]) {
+				int temp = arr[j];
+				arr[j] = arr[j+1];
+				arr[j+1] = temp;
+			}
+			while(n != j) {
+			if(arr[j] > arr[j - n]) {
+				int temp = arr[j - n];
+				arr[j - n] = arr[j];
+				arr[j] = temp;
+			}
+			n++;
+			}
+		}
+		return arr;
+	}
+}

@@ -1,0 +1,50 @@
+package Sorting;
+
+public class QuickSort {
+
+    public static void main(String[] args) {
+        int[] arr = {31, 12, 55, 26, 17, 14, 43, 22};
+
+        quickSort(arr, 0, arr.length - 1);
+
+        // Print sorted array
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + ",");
+        }
+    }
+
+    // Quick Sort function
+    public static void quickSort(int[] arr, int low, int high) {
+        if (low < high) { // Base case: stop recursion when the range is invalid
+            int pivotIndex = partition(arr, low, high);
+
+            // Sort the left and right subarrays
+            quickSort(arr, 0, pivotIndex - 1);
+            quickSort(arr, pivotIndex + 1, arr.length);
+        }
+    }
+
+    // Partition function
+    public static int partition(int[] arr, int low, int high) {
+        int pivot = arr[high]; // Choose the last element as the pivot
+        int i = low - 1; // Pointer for the smaller element
+
+        for (int j = low; j < high; j++) {
+            if (arr[j] <= pivot) { // If current element is smaller than or equal to the pivot
+                i++;
+                swap(arr, i, j); // Swap arr[i] and arr[j]
+            }
+        }
+
+        // Place pivot in the correct position
+        swap(arr, i + 1, high);
+        return i + 1; // Return the pivot index
+    }
+
+    // Swap function
+    public static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+}
